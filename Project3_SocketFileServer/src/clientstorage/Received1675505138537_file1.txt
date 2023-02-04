@@ -1,0 +1,2 @@
+o you want?[1. file1 | 2. file2 | 3.file3 | 4. EXIT ]..
+Type (1/2/3) to get file or 4 to terminate connection.
