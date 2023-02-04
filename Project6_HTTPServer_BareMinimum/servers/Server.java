@@ -18,6 +18,8 @@ public class Server {
     public static void main(String[] args) throws Exception {
         //Creating server on port 8000
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+        //The called FileHandler will handle 
+        //all types of requests and will send response to client
         server.createContext("/", new FileHandler());
         server.setExecutor(null);
         server.start();
