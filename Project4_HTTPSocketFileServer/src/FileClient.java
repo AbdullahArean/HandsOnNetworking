@@ -8,7 +8,7 @@ public class FileClient {
         // Set the server's IP address and the file name you want to download
         String serverIP = "localhost";
         // Create a socket to connect to the server
-        socket = new Socket(serverIP, 8280);
+        socket = new Socket(serverIP, 8480);
 
         while (true) {
             System.out.println("What do you want to do? 1. Receive (Download) \n2.Send (Upload)\n3.Exit");
