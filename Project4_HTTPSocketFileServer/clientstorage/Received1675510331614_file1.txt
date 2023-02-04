@@ -1,0 +1,7 @@
+P/1.0 200 OK
+Content-Type: application/octet-stream
+Content-Length: 14
+Content-Disposition: attachment; filename=C:\Users\abdul\Desktop\HandsOnNetworking\Project4_HTTPSocketFileServer\serverstorage\file1.txt
+
+this is file 1HTTP/1.0 405 Method Not Allowed
+HTTP/1.0 404 Not Found

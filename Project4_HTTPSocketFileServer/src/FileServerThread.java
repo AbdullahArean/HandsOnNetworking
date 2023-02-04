@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.Socket;
+import java.util.Scanner;
 
 class FileServerThread extends Thread {
     private Socket socket;
@@ -53,7 +54,9 @@ class FileServerThread extends Thread {
                 String fileData = requestLines[requestLines.length - 1];
 
                 // Open a file output stream to save the file
-                FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\abdul\\Desktop\\file_server_http\\aa\\" + System.currentTimeMillis() + ".txt");
+                String workingDirectory = System.getProperty("user.dir");
+                String saveFilePath = workingDirectory + File.separator + "serverstorage"+File.separator+"Uploaded_"+System.currentTimeMillis()+".txt";
+                FileOutputStream fileOutputStream = new FileOutputStream(saveFilePath);
 
                 // Write the file data to the file output stream
                 fileOutputStream.write(fileData.getBytes());

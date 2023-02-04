@@ -1,6 +1,0 @@
-P/1.0 200 OK
-Content-Type: application/octet-stream
-Content-Length: 14
-Content-Disposition: attachment; filename=C:\Users\abdul\Desktop\file_server_http\src\file1.txt
-
-this is file 1

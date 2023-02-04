@@ -4,7 +4,7 @@ import java.net.*;
 public class FileServer {
     public static void main(String[] args) throws IOException {
         // Set the port number
-        int port = 8080;
+        int port = 8280;
 
         // Create the server socket
         ServerSocket serverSocket = new ServerSocket(port);

@@ -10,19 +10,17 @@ public class FileClient {
         String userinp = (new Scanner(System.in)).nextLine();
         Socket socket = null;
         // Create a socket to connect to the server
-        socket = new Socket(serverIP, 8080);
+        socket = new Socket(serverIP, 8280);
         if (userinp.equals("2")) {
             System.out.println("Give the file name you want to download! (will be downloaded in out folder)");
+            String workingDirectory = System.getProperty("user.dir");
             String userinp1 = (new Scanner(System.in)).nextLine();
-            String fileName = "C:\\Users\\abdul\\Desktop\\file_server_http\\src\\" + userinp1 + ".txt";
-
-
-
+            String saveFilePath = workingDirectory + File.separator + "serverstorage"+File.separator+userinp1+".txt";
             // Open an output stream to send the GET request
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
             // Send the GET request
-            out.println("GET /" + fileName + " HTTP/1.0");
+            out.println("GET /" + saveFilePath + " HTTP/1.0");
             out.println();
             out.flush();
 
@@ -42,9 +40,10 @@ public class FileClient {
                 int fileStart = response.indexOf("\r\n\r\n") + 4;
                 int fileEnd = response.length() - 1;
                 String fileData = response.substring(fileStart, fileEnd);
+                saveFilePath = workingDirectory + File.separator + "clientstorage"+File.separator+"Received"+System.currentTimeMillis()+"_"+userinp1+".txt";
 
                 // Open a file output stream to save the file
-                FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\abdul\\Desktop\\file_server_http\\out\\" + System.currentTimeMillis() + ".txt");
+                FileOutputStream fileOutputStream = new FileOutputStream(saveFilePath);
 
                 // Write the file data to the file output stream
                 fileOutputStream.write(fileData.getBytes());
@@ -61,7 +60,10 @@ public class FileClient {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
             // Open a file input stream to read the file
-            FileInputStream fileInputStream = new FileInputStream("C:\\Users\\abdul\\Desktop\\file_server_http\\src\\file1.txt");
+            String workingDirectory = System.getProperty("user.dir");
+            String userinp1 = (new Scanner(System.in)).nextLine();
+            String saveFilePath = workingDirectory + File.separator + "src"+File.separator+userinp1+".txt";
+            FileInputStream fileInputStream = new FileInputStream(saveFilePath);
 
             // Read the file into a byte array
             byte[] fileData = new byte[fileInputStream.available()];
