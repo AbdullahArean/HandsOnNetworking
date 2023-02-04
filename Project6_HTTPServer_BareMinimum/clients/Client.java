@@ -16,8 +16,11 @@ import java.nio.channels.Channels;
 
 public class Client {
     public static void main(String[] args) throws Exception {
+        //1. To take client input
         Scanner scanner = new Scanner(System.in);
+        //2. Server running on 'localhost'(for different pc, use network ip address) and on port 8000
         String baseURL = "http://localhost:8000/";
+        //3. File name to receive or to be send
         String fileName = null;
 
         while(true){
@@ -26,9 +29,12 @@ public class Client {
             System.out.println("2. Upload File");
             System.out.println("3. Any number to quit program");
             System.out.print("Enter you Choice: ");
+            //4. Taking user choise
             int choice = scanner.nextInt();
+            //5. Option 1 for Downloading file from server via GET request
             if(choice==1){
                 System.out.print("Enter file name: ");
+                //Taking file name from client that will be downloaded
                 fileName = scanner.next();
                 URL url = new URL(baseURL+fileName);
                 ReadableByteChannel rbc = Channels.newChannel(url.openStream());
@@ -36,11 +42,15 @@ public class Client {
                 fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
                 fos.close();
                 System.out.println(fileName+" has been downloaded.");
-            }else if(choice==2){
+            }
+            //6. Uploading file to server via POST request
+            else if(choice==2){
                 System.out.print("Enter the file name to upload: ");
+                //Taking file name from client that will be uploaded
                 fileName = scanner.next();
                 URL url = new URL(baseURL+fileName);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                //7. Setting request Method POST
                 connection.setRequestMethod("POST");
                 connection.setDoOutput(true);
                 connection.setRequestProperty("Content-Type",

@@ -16,6 +16,7 @@ import com.sun.net.httpserver.HttpServer;
 
 public class Server {
     public static void main(String[] args) throws Exception {
+        //Creating server on port 8000
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
         server.createContext("/", new FileHandler());
         server.setExecutor(null);
@@ -34,7 +35,7 @@ public class Server {
                 responseHeaders.add("Access-Control-Allow-Headers","origin, content-type, accept, authorization");
                 responseHeaders.add("Access-Control-Allow-Credentials", "true");
                 responseHeaders.add("Access-Control-Allow-Methods", "GET, POST");
-
+                //handles GET requests
                 if(method.equals("GET")){
                     try{
                         System.out.println("GET request received");
@@ -50,7 +51,9 @@ public class Server {
                         os.write(response);
                         os.close();
                     }
-                }else if(method.equals("POST")){
+                }
+                //Handles POST requests
+                else if(method.equals("POST")){
                     InputStream is = t.getRequestBody();
                     FileOutputStream fos = new FileOutputStream("b.txt");
                     byte [] buffer = new byte[1024];
@@ -64,7 +67,9 @@ public class Server {
                     OutputStream os = t.getResponseBody();
                     os.write(response.getBytes());
                     os.close();
-                }else{
+                }
+                //Just for basic implementation, ignoring other request methods
+                else{
                     throw new Exception("Not Valid Request Method");
                 }
             }catch (Exception e){
