@@ -9,9 +9,6 @@
         <module name="http-file-server" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="http-file-server" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
