@@ -1,13 +1,16 @@
 # File Transfer using Java Socket Programming
+
 This project is a basic implementation of a file transfer protocol using a server-client architecture in Java. The client can connect to the server, make a request to the server for a particular file(i.e. file1, file2 and file3). As response, the server process the request and sends the file according to the client's need. Note that multiple client can access the network which implies we have implemented multi-client server in our implementation.  
 
 ## Features
+
 This project uses a server-client architecture and implements the following features:
 - A Server class that listens for incoming client connections and creates a new thread for each connected client
 - A ClientHandler class that handles each client connection, reads request from the client, and sends the file according to the client(s) request
 - A Client class that connects to the server, sends the message to the server which file a client wants, and receives the file from it requests for from the server
 
 ## Protocol Develoved
+
 “File Transfer Protocol”(FTP), a simple client-server protocol for the file tranfer system can be defined as follows:
 
 - The client establishes a connection to the server using the server's IP address and port number.
@@ -17,6 +20,7 @@ This project uses a server-client architecture and implements the following feat
 - The client can log out by encountering a "4" to the server and close the connection.
 
 ## Getting Started
+
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
