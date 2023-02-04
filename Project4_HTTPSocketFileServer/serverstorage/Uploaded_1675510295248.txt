@@ -1,1 +1,0 @@
-POST /example.txt HTTP/1.0
