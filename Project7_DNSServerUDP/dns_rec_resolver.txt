@@ -1,0 +1,2 @@
+Name	Value	Type	TTL
+ns1.cse.du.ac.bd	192.0.2.1	A	60

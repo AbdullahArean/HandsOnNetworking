@@ -1,0 +1,6 @@
+Name	Value	Type	TTL
+ns1.cse.du.ac.bd	192.0.2.1	A	60
+ns2.cse.du.ac.bd	192.0.2.2	A	60
+cse.du.ac.bd	192.0.2.3	A	60
+mail.cse.du.ac.bd	2001:db8::4	AAAA	60
+mail.cse.du.ac.bd	192.0.2.4	A	60

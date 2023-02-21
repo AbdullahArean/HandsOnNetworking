@@ -1,0 +1,4 @@
+Name	Value	Type	TTL
+cse.du.ac.bd	192.0.2.3	A	60
+mail.cse.du.ac.bd	32.1.13.184.0.0.0.0.0.0.0.0.0.0.0.4	A	60
+mail.cse.du.ac.bd	192.0.2.4	A	60
