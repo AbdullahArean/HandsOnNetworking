@@ -133,7 +133,7 @@ public class TLDDNSServerbd {
                 }
             }
             if (ipmatched.size()==0 && QNAME.endsWith("cse.du.ac.bd")) {
-                byte[] done = DNSMessageCreateSendParse.ServerDNS2(QNAME, (short) 1, "192.168.0.4", 300);
+                byte[] done = DNSMessageCreateSendParse.ServerDNS2(QNAME, (short) 1, "localhost", 300);
                 localstorage.addAll(DNSMessageCreateSendParse.DNSReturn(done));
                 DnsRecord.writeRecordsToFile(localstorage,"dns_rec_td_bd.txt" );
                 return  done;

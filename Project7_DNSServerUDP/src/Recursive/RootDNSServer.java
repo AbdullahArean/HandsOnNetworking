@@ -134,7 +134,7 @@ public class RootDNSServer {
                 }
             }
             if (ipmatched.size()==0 && QNAME.endsWith(".bd")) {
-                byte[] done = DNSMessageCreateSendParse.ServerDNS2(QNAME, (short) 1, "192.168.0.4", 100);
+                byte[] done = DNSMessageCreateSendParse.ServerDNS2(QNAME, (short) 1, "localhost", 100);
                 localstorage.addAll(DNSMessageCreateSendParse.DNSReturn(done));
                 DnsRecord.writeRecordsToFile(localstorage,"dns_rec_root.txt" );
                 return  done;

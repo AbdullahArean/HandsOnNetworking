@@ -145,11 +145,9 @@ ArrayList<Integer> ipmatched = new ArrayList<Integer>();
             short QCLASS = dataInputStream.readShort();
             System.out.println("Record Type: " + String.format("%s", QTYPE));
             System.out.println("Class: " + String.format("%s", QCLASS));
-            System.out.println("here2");
             // Construct DNS response
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            System.out.println("here3");
             // Write header
             dataOutputStream.writeShort(tid); // ID
             dataOutputStream.writeShort(0x8180); // Flags
@@ -163,7 +161,6 @@ ArrayList<Integer> ipmatched = new ArrayList<Integer>();
 
             // Write query
             String[] domainParts = QNAME.split("\\.");
-            System.out.println("here4");
             int queryLength = 0;
             for (int i = 0; i < domainParts.length; i++) {
                 byte[] domainBytes = domainParts[i].getBytes(StandardCharsets.UTF_8);
@@ -171,7 +168,6 @@ ArrayList<Integer> ipmatched = new ArrayList<Integer>();
                 dataOutputStream.write(domainBytes);
                 queryLength += domainBytes.length + 1;
             }
-            System.out.println("here5");
             // No more parts
             dataOutputStream.writeByte(0);
             queryLength++;
@@ -190,7 +186,7 @@ ArrayList<Integer> ipmatched = new ArrayList<Integer>();
                 dataOutputStream.writeShort(-1); // Type
                 dataOutputStream.writeShort(QCLASS); // Class
                 dataOutputStream.writeInt(100); // TTL
-                InetAddress inetAddress = InetAddress.getByName("192.168.0.4");//change this ip to the ip of authserver
+                InetAddress inetAddress = InetAddress.getByName("localhost");//change this ip to the ip of authserver
                 byte[] ipAddressBytes = inetAddress.getAddress();
                 dataOutputStream.writeShort(ipAddressBytes.length); // Data length
                 dataOutputStream.write(ipAddressBytes);

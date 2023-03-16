@@ -137,7 +137,7 @@ public class DNSRecursiveResolver {
             }
             //to go root
             if (ipmatched.size()==0) {
-                byte[] done = DNSMessageCreateSendParse.ServerDNS2(QNAME, (short) 1, "192.168.0.4", 99);
+                byte[] done = DNSMessageCreateSendParse.ServerDNS2(QNAME, (short) 1, "localhost", 99);
                 localstorage.addAll(DNSMessageCreateSendParse.DNSReturn(done));
                 DnsRecord.writeRecordsToFile(localstorage,"dns_rec_resolver.txt" );
                 return  done;

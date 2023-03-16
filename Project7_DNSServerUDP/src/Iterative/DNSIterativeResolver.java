@@ -162,7 +162,7 @@ public class DNSIterativeResolver {
             //Main Iterative Happens here
          if (ipmatched.size()==0) {
 //              //Iterative Call To Root DNS Server
-                byte[] done = DNSMessageCreateSendParse.ServerDNS2(QNAME, (short) 1, "192.168.0.4", 99);
+                byte[] done = DNSMessageCreateSendParse.ServerDNS2(QNAME, (short) 1, "localhost", 99);
                 ArrayList<DnsRecord> FromRoot = DNSMessageCreateSendParse.DNSReturn(done);
                 //Iterative Call To Top Level Domain
 //                if(!Objects.equals(FromRoot.get(0).getType(), "-1")) {

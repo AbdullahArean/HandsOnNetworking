@@ -185,7 +185,7 @@ public class TLDDNSServerbd {
                 dataOutputStream.writeShort(-1); // Type
                 dataOutputStream.writeShort(QCLASS); // Class
                 dataOutputStream.writeInt(300); // TTL
-                InetAddress inetAddress = InetAddress.getByName("192.168.0.4");//change this ip to the ip of authserver
+                InetAddress inetAddress = InetAddress.getByName("localhost");//change this ip to the ip of authserver
                 byte[] ipAddressBytes = inetAddress.getAddress();
                 dataOutputStream.writeShort(ipAddressBytes.length); // Data length
                 dataOutputStream.write(ipAddressBytes);
