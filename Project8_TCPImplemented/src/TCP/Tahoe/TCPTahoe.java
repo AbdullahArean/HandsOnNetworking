@@ -55,7 +55,7 @@ public class TCPTahoe {
         double alpha = 0.125;
         double DevRTT = 0.2;
         double beta = 0.125;
-        double RTO = 1;
+        double RTO = 100;
         boolean flagfin= false;
         long StartTime = System.nanoTime();
         FileWriter writer = new FileWriter("pointstahoe.txt"); // create a new file
@@ -92,7 +92,7 @@ public class TCPTahoe {
             try {
                 // Set timeout for the socket
                 // If the ACK is not received within the timeout period, a timeout exception is thrown
-                clientSocket.setSoTimeout((int) (RTO*1000));
+                clientSocket.setSoTimeout((int) (RTO));
                 for (int i = 0; i < cwnd; i++) {
                     byte[] AckPacket = new byte[20];
                     clientSocket.getInputStream().read(AckPacket);
