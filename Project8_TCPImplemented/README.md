@@ -1,4 +1,4 @@
-# TCPTahoe
+# TCP Implementation
 ### Introduction
 TCP is referred as Transmission Control Protocol which uses both flow control and congestion control algorithms to ensure reliable data transfer over computer networks.<br>
 Flow control is used to regulate the amount of data that is sent by the sender, to prevent the receiver from being overwhelmed with data. 
