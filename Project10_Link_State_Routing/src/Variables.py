@@ -1,0 +1,9 @@
+arg_num = 2
+file_name = 1
+name_router = 0
+parent_port = 1
+port_child = 2
+distance = 1
+update_interval = 1
+router_update_interval = 15
+server_name = 'localhost'
